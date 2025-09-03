@@ -1,0 +1,24 @@
+[project]
+name = "mlproject-main"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "catboost>=1.2.8",
+    "flask>=3.1.2",
+    "matplotlib>=3.10.6",
+    "mlproject-main",
+    "numpy>=2.3.2",
+    "pandas>=2.3.2",
+    "scikit-learn>=1.7.1",
+    "seaborn>=0.13.2",
+    "setuptools>=80.9.0",
+    "xgboost>=3.0.4",
+]
+
+[tool.uv.sources]
+mlproject-main = { workspace = true }
