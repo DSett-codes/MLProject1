@@ -1,5 +1,11 @@
 import sys
+import os
 import pandas as pd
+
+PACKAGE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if PACKAGE_ROOT not in sys.path:
+    sys.path.insert(0, PACKAGE_ROOT)
+
 from src.exception import CustomException
 from src.utils import load_object
 
@@ -65,4 +71,3 @@ class CustomData:
 
         except Exception as e:
             raise CustomException(e, sys)
-

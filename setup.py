@@ -6,14 +6,17 @@ def get_requirements(file_path:str)->List[str]:
     '''
     this function will return the list of requirements
     '''
-    requirements=[]
+    requirements: List[str] = []
     with open(file_path) as file_obj:
-        requirements=file_obj.readlines()
-        requirements=[req.replace("\n","") for req in requirements] 
+        for line in file_obj:
+            req = line.strip()
+            # skip empty lines, comments and editable/install markers
+            if not req or req.startswith('#'):
+                continue
+            if req.startswith('-e') or req == HYPEN_E_DOT:
+                continue
+            requirements.append(req)
 
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
-    
     return requirements
 
 setup(
